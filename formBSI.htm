@@ -5,115 +5,157 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>REGISTRATION FORM</title>
   <style>
-    body {
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
       font-family: Arial, sans-serif;
       background-color: #f8f9fa;
-      padding: 30px;
     }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    
     .form-container {
       max-width: 750px;
-      margin: auto;
+      margin: 20px;
       background: #fff;
       padding: 30px;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }.addressBSI{
-      font-size:12px;
-      margin-left:300px;
-      margin-top:-100px;
-      color:#0055aa
-    }.addressBSI a{
-        color:blue
+      width: 100%;
+      box-sizing: border-box;
     }
+
+    .form-container img{
+      width:390px;
+      margin-left:-20px;
+    }
+
+    .addressBSI{
+      font-size:12px;
+      margin-left:330px;
+      margin-top:-190px;
+      color:#0055aa;
+    }
+
+    .addressBSI a{
+      color:blue;
+    }
+
     h2 {
       text-align: center;
       color: #003366;
+      margin-top: 100px;
     }
+
     label {
       display: block;
       margin-top: 15px;
       font-weight: bold;
     }
-    input, textarea {
+
+    input, textarea, select, button {
       width: 100%;
       padding: 10px;
       margin-top: 5px;
       border: 1px solid #ccc;
       border-radius: 5px;
       font-size: 14px;
+      box-sizing: border-box;
     }
+
     textarea {
       resize: vertical;
     }
+
     button {
       margin-top: 20px;
       background-color: #003366;
       color: #fff;
-      padding: 12px 20px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
       font-size: 16px;
     }
+
     button:hover {
       background-color: #0055aa;
     }
-    canvas {
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      width: 100%;
-      height: 200px;
-      margin-top: 5px;
-    }
-    .clear-btn {
-     margin-top: 20px;
-      background-color: #003366;
-      color: #fff;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    .clear-btn:hover {
-       background-color: #0055aa;
+
+    /* Responsive for phones */
+    @media (max-width: 600px) {
+      .form-container {
+        margin: 0;
+        padding: 15px;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      h2 {
+        margin-top: 20px;
+      }
+
+      input, select, textarea, button {
+        font-size: 16px;
+        padding: 12px;
+      }
+
+      .addressBSI {
+        font-size: 11px;
+        margin-left: 0;
+        margin-top: 0;
+        text-align: center;
+      }
+
+      .form-container img {
+        width: 100%;
+        margin-left: 0;
+      }
     }
   </style>
 </head>
 <body>
 
 <div class="form-container">
-    <img src="images/collegeBSI.jpg" alt="BSI College Logo" width="180">
+    <img src="images/collegeBSI.jpg" alt="College BSI">
+    
     <div class="addressBSI">
-    <p>5th Floor, 33 Church Street, Cape Town City Centre, Cape Town, 8001</p>
-    <p>Suite 102-N, 28 Saddle Dr, Woodmead Office Park, Sandton, Johannesburg, SA</p>
-    <p>11th floor, 1108 Metlife, 391, Smith Street, Durban Central, 4001</p>
-    <p>Head Office, Cape Town Branch Tel: +27 21 285 0213</p>
-    <p>Johannesburg Branch Tel: +27 10 065 0687</p>
-    <p>Tel & Whatsapp: +27 67 273 6847</p>
-    <a href="index.html">www.bsisa.co.za</a>,
-    <a href="mailto:info@bsisa.co.za">info@bsisa.co.za</a>
+      <p>5th Floor, 33 Church Street, Cape Town City Centre, Cape Town, 8001</p>
+      <p>Suite 102-N, 28 Saddle Dr, Woodmead Office Park, Sandton, Johannesburg, SA</p>
+      <p>11th floor, 1108 Metlife, 391, Smith Street, Durban Central, 4001</p>
+      <p>Head Office, Cape Town Branch Tel: +27 21 285 0213</p>
+      <p>Johannesburg Branch Tel: +27 10 065 0687</p>
+      <p>Durban Branch Tel: +27 67 273 6847</p>
+      <p>Whatsapp: +27 67 273 6847</p>
+      <a href="home.html">www.bsisa.co.za</a>, 
+      <a href="mailto:info@bsisa.co.za">info@bsisa.co.za</a>
+    </div>
 
-</div>
   <h2>REGISTRATION FORM</h2>
 
-  <form action="https://formsubmit.co/tsakanimaheso@gmail.com" method="POST">
-
-
-    <input type="hidden" name="_next" value="http://127.0.0.1:5500/index.html">
-    <input type="hidden" name="_captcha" value="false">
-     <input type="hidden" name="_cc" value="oumamaheso18@gmail.com">
-
+  <form action="mailto:info@bsisa.co.za?cc=helent@bsisa.co.za&subject=Student Registration" method="POST" enctype="text/plain">
+    
     <label>Name & Surname</label>
     <input type="text" name="fullname" required>
 
     <label>Contact Details</label>
-    <textarea name="contact_details" rows="2" required></textarea>
+    <input 
+      type="text" 
+      name="contact_details" 
+      placeholder="+27 82 345 6789"
+      maxlength="15"
+      oninput="this.value = this.value.replace(/[^0-9+()\s\-]/g, '')"
+      pattern="^\+?[0-9\s\-()]{7,15}$"
+      title="Enter a valid phone number (7–15 digits, numbers only)"
+      required>
 
-    <label>Username</label>
-    <input type="text" name="username" required>
-
-    <label>Gmail/Email Address</label>
+    <label>Email Address</label>
     <input type="email" name="email" required>
 
     <label>Student Number</label>
@@ -123,75 +165,33 @@
     <input type="text" name="course_name" required>
 
     <label>Course Duration</label>
-    <input type="text" name="course_duration" required>
+    <div style="display:flex; gap:10px; flex-wrap: wrap;">
+      <input type="number" name="course_duration_value" min="1" placeholder="Duration" required style="flex:1;">
+      <select name="course_duration_unit" required style="flex:1;">
+        <option value="">Select Unit</option>
+        <option value="days">Days</option>
+        <option value="weeks">Weeks</option>
+        <option value="months">Months</option>
+        <option value="years">Years</option>
+      </select>
+    </div>
 
     <label>Start Date</label>
     <input type="date" name="start_date" required>
 
-    <label>Electronic Signature (use your mouse or finger)</label>
-    <canvas id="signature-pad"></canvas>
-    <input type="hidden" name="signature" id="signature-field">
-    <button type="button" id="clear" class="clear-btn">Clear Signature</button>
+    <label>Electronic Signature (Initials Only)</label>
+    <input type="text" name="signature" 
+       placeholder="e.g., TM or O.M." 
+       pattern="^[A-Z]{1,3}(\.[A-Z]{1,3})?$" 
+       title="Please enter initials only, e.g., TM or O.M." 
+       required>
 
     <button type="submit">Submit Registration</button>
   </form>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
-<script>
-const canvas = document.getElementById('signature-pad');
-const signaturePad = new SignaturePad(canvas);
-const form = document.getElementById('registration-form');
-const signatureField = document.getElementById('signature-field');
 
-// Clear signature button
-document.getElementById('clear').addEventListener('click', () => signaturePad.clear());
+</body>
+</html>
 
-// Upload signature to Cloudinary
-async function uploadSignature(dataURL) {
-    const cloudName = 'dnmjzqjiy';          // replace with your Cloudinary cloud name
-    const unsignedUploadPreset = 'signature_upload'; // replace with your preset
 
-    // Convert Base64 to Blob
-    const blob = await (await fetch(dataURL)).blob();
-    const formData = new FormData();
-    formData.append('file', blob);
-    formData.append('upload_preset', unsignedUploadPreset);
-
-    const response = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/upload`, {
-        method: 'POST',
-        body: formData
-    });
-
-    const data = await response.json();
-    return data.secure_url; // public URL of the signature
-}
-
-// On form submit
-form.addEventListener('submit', async function(e) {
-    if (signaturePad.isEmpty()) {
-        alert('Please sign before submitting.');
-        e.preventDefault();
-        return;
-    }
-
-    e.preventDefault(); // wait until upload finishes
-
-    const dataURL = signaturePad.toDataURL('image/png');
-
-    try {
-        // Upload to Cloudinary
-        const uploadedImageURL = await uploadSignature(dataURL);
-
-        // Put a clickable link in the hidden field
-        signatureField.value = `View or download signature: ${uploadedImageURL}`;
-
-        // Now submit the form to FormSubmit
-        form.submit();
-
-    } catch (err) {
-        alert('Failed to upload signature. Please try again.');
-        console.error(err);
-    }
-});
-</script>
 
